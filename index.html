@@ -21,12 +21,27 @@
       canvas {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
+      select {
+        padding: 6px 10px;
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
     </style>
   </head>
   <body>
     <main>
       <h1>Line Rasterization Test</h1>
       <p>Drag the endpoints to test the algorithm</p>
+      <br /><br />
+
+      <div style="margin-top: 10px">
+        <select id="algorithmSelect">
+          <option value="bresenham">Bresenham</option>
+          <option value="dda">DDA</option>
+          <option value="circle">Midpoint Circle</option>
+          <option value="wu">Wu (Anti-aliased)</option>
+        </select>
+      </div>
     </main>
 
     <!-- Import p5.js from CDN -->

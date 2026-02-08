@@ -17,7 +17,25 @@ function setup() {
   endpoint2 = new Point(40, 35);
 
   // Create rasterizer instance
-  rasterizer = new WuRasterizer();
+  const selector = document.getElementById("algorithmSelect");
+
+  function updateRasterizer() {
+    const value = selector.value;
+
+    if (value === "bresenham") {
+      rasterizer = new BresenhamRasterizer();
+    } else if (value === "dda") {
+      rasterizer = new DDARasterizer();
+    } else if (value === "circle") {
+      rasterizer = new MidpointCircleRasterizer();
+    } else if (value === "wu") {
+      rasterizer = new WuRasterizer();
+    }
+  }
+
+  selector.addEventListener("change", updateRasterizer);
+
+  updateRasterizer(); // initialize default
 }
 
 function draw() {
